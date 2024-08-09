@@ -13,18 +13,19 @@ import web.service.UsersService;
 @Controller
 public class UserController {
 
-    private final UsersService userService;
+    private final UsersService usersService; // тип интерфейса, который имплементируется только одним классом
 
     public UserController(@Autowired UsersService userService) {
-        this.userService = userService;
+        this.usersService = userService;
     }
 
     @GetMapping("/users")
-    public String getAllUsers(Model model) {
-        List<User> users = userService.findAllUsers();
-        model.addAttribute("userList", users);
-        return "users";
+    public String getAllUsers(Model model) { // создаем модель в методе и добавляем Лист в качестве атрибута к этой моделе
+        List<User> allUsers = usersService.findAllUsers();
+        model.addAttribute("userList", allUsers); // помещаем в модель атрибут
+        return "allUsers";
     }
+
 //
 //    @GetMapping("/add")
 //    public String addPage(Model model) {

@@ -10,19 +10,18 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Surname</th>
         <th>Age</th>
         <th>Email</th>
+
         <th>Edit</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="user" items="${userList}">
         <tr>
-            <td><c:out value="${user.id}" /></td>
-            <td><c:out value="${user.name}" /></td>
-            <td><c:out value="${user.surname}" /></td>
-            <td><c:out value="${user.age}" /></td>
-            <td><c:out value="${user.email}" /></td>
+            <td><c:out value="${user.userId}" /></td>
+            <td><c:out value="${user.userName}" /></td>
+            <td><c:out value="${user.userAge}" /></td>
+            <td><c:out value="${user.userEmail}" /></td>
             <td><a href="${pageContext.request.contextPath}/edit?id=${user.id}">Edit</a></td>
             <td><a href="${pageContext.request.contextPath}/delete?id=${user.id}">Delete</a></td>
         </tr>
