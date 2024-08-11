@@ -32,7 +32,7 @@ public class HibernateConfig { /// PersistenceJPAConfig
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean(); // можно добавит final
         em.setDataSource(dataSource());
-        em.setPackagesToScan("web.model");
+        em.setPackagesToScan("web.models");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(hibernateProperties()); // о том, что EntityManagerFactory предоставляется Hibernate-ом
         return em;

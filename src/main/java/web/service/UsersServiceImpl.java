@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.dao.UserDAO;
-import web.model.User;
+import web.models.User;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public List<User> findAllUsers() {
+    public List<User> findAll() {
         return usersDao.findAllUsers();
     }
 

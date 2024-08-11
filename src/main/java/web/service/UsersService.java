@@ -1,12 +1,12 @@
 package web.service;
 
-import web.model.User;
+import web.models.User;
 
 import java.util.List;
 
 public interface UsersService {
 
-    List<User> findAllUsers();
+    List<User> findAll();
 
     void add(User user);
 

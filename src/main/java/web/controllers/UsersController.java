@@ -3,36 +3,52 @@ package web.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import web.model.User;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import web.models.User;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import web.service.UsersService;
 
+import java.util.List;
+
 @Controller
-public class UserController {
+@RequestMapping("/users")
+public class UsersController { // пишем в множественном числе
 
     private final UsersService usersService; // тип интерфейса, который имплементируется только одним классом
 
-    public UserController(@Autowired UsersService userService) {
+    public UsersController(@Autowired UsersService userService) {
         this.usersService = userService;
     }
 
-    @GetMapping("/users")
+    @GetMapping("/all")
     public String getAllUsers(Model model) { // создаем модель в методе и добавляем Лист в качестве атрибута к этой моделе
-        List<User> allUsers = usersService.findAllUsers();
-        model.addAttribute("userList", allUsers); // помещаем в модель атрибут
+        List<User> users = usersService.findAll();
+        model.addAttribute("userList", users); // помещаем в модель атрибут(если раскоментируес строку выше-- напишем вместо метода allUsers
+        System.out.println("Hello Java");
         return "allUsers";
     }
 
-//
-//    @GetMapping("/add")
-//    public String addPage(Model model) {
-//        model.addAttribute("user", new User());
-//        return "addPage";
+//    @GetMapping("/users")
+//    public String getAllUsers(Model model) {
+//        List<User> users = userService.allUsers();
+//        model.addAttribute("userList", users);
+//        return "users";
 //    }
-//
+
+
+    @GetMapping("/add")
+    public String addNewUser(Model model) {
+        User newUser = new User();
+        model.addAttribute("newUser", newUser);
+        return "add";
+    }
+//@RequestMapping("/save")
+//    public String saveNewUser(@ModelAttribute ("newUser") User newUser) {
+//    usersService.add(newUser);
+//        return "redirect:/users/all";
+//    }
+
 //    @PostMapping("/add")
 //    public String addUser(@RequestParam("name") String name,
 //                          @RequestParam("surname") String surname,

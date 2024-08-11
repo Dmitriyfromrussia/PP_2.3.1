@@ -1,11 +1,11 @@
 package web.dao;
 
+
 import org.springframework.stereotype.Repository;
-import web.model.User;
+import web.models.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -16,29 +16,34 @@ public class UserDaoImpl implements UserDAO {
 
     @Override
     public List<User> findAllUsers() { // разобраться с null
-//        List<User> allUsers = entityManager.createQuery("FROM User", User.class).getResultList();
-        Query query = entityManager.createQuery("FROM User", User.class); //указываем класс, не название таблицы
-        List<User> allUsers = query.getResultList();
+        //List<User> allUsers = entityManager.createNativeQuery("SELECT * from Users").getResultList();
+        List<User> allUsers = entityManager.createQuery("from User", User.class).getResultList();
+        //Query query = entityManager.createQuery("FROM User", User.class); //указываем класс, не название таблицы
+        //List<User> allUsers = query.getResultList();
+//        TypedQuery<User> query1 = entityManager.createQuery("from User", User.class);
+//        return query1.getResultList();
+        //System.out.println(allUsers.toString());
         return allUsers;
+        //return entityManager.createQuery("from User", User.class).getResultList();
     }
 
     @Override
-    public void add(User user) {
-
+    public void addUser(User user) {
+        entityManager.persist(user);
     }
 
     @Override
-    public void delete(User user) {
-
-    }
-
-    @Override
-    public void edit(User user) {
+    public void deleteUser(User user) {
 
     }
 
     @Override
-    public User getById(int id) {
+    public void editUser(User user) {
+
+    }
+
+    @Override
+    public User getUserById(int id) {
         return null;
     }
 }
