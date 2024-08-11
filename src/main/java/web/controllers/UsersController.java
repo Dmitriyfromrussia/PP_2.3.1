@@ -12,7 +12,7 @@ import web.service.UsersService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/users") //это Controller mapping
 public class UsersController { // пишем в множественном числе
 
     private final UsersService usersService; // тип интерфейса, который имплементируется только одним классом
@@ -21,21 +21,13 @@ public class UsersController { // пишем в множественном чи�
         this.usersService = userService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/all") //это Method mapping
     public String getAllUsers(Model model) { // создаем модель в методе и добавляем Лист в качестве атрибута к этой моделе
         List<User> users = usersService.findAll();
         model.addAttribute("userList", users); // помещаем в модель атрибут(если раскоментируес строку выше-- напишем вместо метода allUsers
         System.out.println("Hello Java");
         return "allUsers";
     }
-
-//    @GetMapping("/users")
-//    public String getAllUsers(Model model) {
-//        List<User> users = userService.allUsers();
-//        model.addAttribute("userList", users);
-//        return "users";
-//    }
-
 
     @GetMapping("/add")
     public String addNewUser(Model model) {
