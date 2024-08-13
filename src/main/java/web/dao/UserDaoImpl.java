@@ -17,13 +17,13 @@ public class UserDaoImpl implements UserDAO {
     @Override
     public List<User> findAllUsers() { // разобраться с null
         //List<User> allUsers = entityManager.createNativeQuery("SELECT * from Users").getResultList();
-        List<User> allUsers = entityManager.createQuery("from User", User.class).getResultList();
+        //List<User> allUsers = entityManager.createQuery("from User", User.class).getResultList();
         //Query query = entityManager.createQuery("FROM User", User.class); //указываем класс, не название таблицы
         //List<User> allUsers = query.getResultList();
 //        TypedQuery<User> query1 = entityManager.createQuery("from User", User.class);
 //        return query1.getResultList();
         //System.out.println(allUsers.toString());
-        return allUsers;
+        return entityManager.createQuery("from User", User.class).getResultList();
         //return entityManager.createQuery("from User", User.class).getResultList();
     }
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import web.models.User;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,12 @@ public class UsersController { // пишем в множественном чи�
         this.usersService = userService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/hello-page")
     public String presentation() {
         return "hello-page";
     }
 
-    @GetMapping("/all") //это Method mapping
+    @GetMapping() //это Method mapping, значение "/" в скобках можно не указывать
     public String getAllUsers(Model model) { // создаем модель в методе и добавляем Лист в качестве атрибута к этой моделе
         List<User> users = usersService.findAll();
         model.addAttribute("userList", users); // помещаем в модель атрибут(если раскоментируес строку выше-- напишем вместо метода allUsers
@@ -39,6 +40,17 @@ public class UsersController { // пишем в множественном чи�
         model.addAttribute("newUser", newUser);
         return "add-data-page";
     }
+
+//    @GetMapping("/add")
+//    public String addNewUser(@RequestParam("name") String newUserName,
+//                             @RequestParam("age") int newUserAge,
+//                             @RequestParam("email") String newUserMail,
+//                             @RequestParam("sex") String newUserSex) {
+//
+//        User newUser = new User(newUserName, newUserAge, newUserMail, newUserSex);
+//        usersService.add(newUser);
+//        return "redirect:/users";
+//    }
 
 //    @GetMapping("/add")
 //    public String addNewUser(Model model) {

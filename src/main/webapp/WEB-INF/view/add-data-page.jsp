@@ -6,14 +6,16 @@
 <body>
 <h2>Add New User</h2>
 <form action="${pageContext.request.contextPath}/add" method="post">
+
     <label for="name">Name</label>
     <input type="text" id="name" name="name" placeholder="обязательное значение"/><br/>
-    <label>Surname:</label>
-    <input type="text" name="Name"/><br/>
+
     <label>Age:</label>
     <input type="text" name="age"/><br/>
+
     <label>Email:</label>
     <input type="text" name="email"/><br/>
+
     <label>Sex</label>
     <input type="text" name="sex"/><br/>
 
