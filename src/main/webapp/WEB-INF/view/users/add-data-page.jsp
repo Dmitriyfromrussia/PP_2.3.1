@@ -17,13 +17,17 @@
     <label>Email:</label>
     <input type="text" name="email"/><br/>
 
-    <label>Sex:</label>
-    <form:select path="sex" >
-        <form:option value="Man" label="M"/>
-        <form:option value="Woman" label="W"/>
-        <form:option value="Human" label="H"/>
-    </form:select>
-    <br/>
+    <label>Sex</label>
+    <input type="text" name="sex"/><br/>
+
+<%--    <label>Sex:</label>--%>
+<%--    <form:select path="sex" >--%>
+<%--        <form:option value="Man" label="M"/>--%>
+<%--        <form:option value="Woman" label="W"/>--%>
+<%--        <form:option value="Human" label="H"/>--%>
+<%--        <form:option value="Нет пола" label="H"/>--%>
+<%--    </form:select>--%>
+<%--    <br/>--%>
 
     <input type="submit" value="Add"/>
 </form>
