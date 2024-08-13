@@ -1,14 +1,11 @@
 package web.models;
 
-import org.hibernate.mapping.Map;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.HashMap;
 
 @Entity
 @Table(name = "users")
@@ -32,7 +29,7 @@ public class User {
     @Column(name = "sex")
     private String userSex;
 
-//    private HashMap<String, String> usersex;
+    //    private HashMap<String, String> usersex;
 //
 //    public HashMap<String, String> getUsersex() {
 //        return usersex;
