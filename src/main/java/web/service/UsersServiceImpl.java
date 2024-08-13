@@ -9,7 +9,8 @@ import web.models.User;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true) // можем помечать классы, тогда все публич методы внуори класса по дефолту имеют такую аннотацию
+@Transactional(readOnly = true)
+// можем помечать классы, тогда все публич методы внуори класса по дефолту имеют такую аннотацию
 public class UsersServiceImpl implements UsersService {
 
     private final UserDAO usersDao;
@@ -26,24 +27,25 @@ public class UsersServiceImpl implements UsersService {
     @Transactional
     @Override
     public void add(User user) {
-
+        usersDao.addUser(user);
     }
 
     @Transactional
     @Override
     public void delete(User user) {
-
+        usersDao.deleteUser(user);
     }
 
     @Transactional
     @Override
     public void edit(User user) {
+        usersDao.editUser(user);
 
     }
 
     @Override
     public User getById(int id) {
-        return null;
+        return usersDao.getUserById(id);
     }
 
 }

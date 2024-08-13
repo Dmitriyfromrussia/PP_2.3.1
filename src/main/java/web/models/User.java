@@ -26,7 +26,8 @@ public class User {
     @Column(name = "email")
     private String userEmail;
 
-    @Column(name = "sex")
+
+    @Column(name = "sex", nullable = true)
     private String userSex;
 
     public User() {

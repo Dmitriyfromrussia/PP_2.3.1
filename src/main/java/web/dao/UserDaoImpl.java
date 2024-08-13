@@ -24,7 +24,6 @@ public class UserDaoImpl implements UserDAO {
 //        return query1.getResultList();
         //System.out.println(allUsers.toString());
         return entityManager.createQuery("from User", User.class).getResultList();
-        //return entityManager.createQuery("from User", User.class).getResultList();
     }
 
     @Override
@@ -34,16 +33,16 @@ public class UserDaoImpl implements UserDAO {
 
     @Override
     public void deleteUser(User user) {
-
+        entityManager.remove(entityManager.contains(user) ? user : entityManager.merge(user));
     }
 
     @Override
     public void editUser(User user) {
-
+        entityManager.merge(user);
     }
 
     @Override
     public User getUserById(int id) {
-        return null;
+        return entityManager.find(User.class, id);
     }
 }

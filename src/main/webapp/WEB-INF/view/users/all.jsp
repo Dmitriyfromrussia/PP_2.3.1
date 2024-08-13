@@ -27,10 +27,12 @@
             <td>${user.userAge}</td>
             <td>${user.userEmail}</td>
             <td>${user.userSex}</td>
+            <td><a href="${pageContext.request.contextPath}/users/edit?id=${user.userId}">Edit</a></td>
+            <td><a href="${pageContext.request.contextPath}/users/delete?id=${user.userId}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
 <br>
-<%--<input type="button" value="Add" onclick="window.location.href = 'add'"/>--%>
+<a href="${pageContext.request.contextPath}/users/add">Add new User</a>
 </body>
 </html>
