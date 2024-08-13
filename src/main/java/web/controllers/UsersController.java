@@ -21,20 +21,33 @@ public class UsersController { // пишем в множественном чи�
         this.usersService = userService;
     }
 
+    @GetMapping("/")
+    public String presentation() {
+        return "hello-page";
+    }
+
     @GetMapping("/all") //это Method mapping
     public String getAllUsers(Model model) { // создаем модель в методе и добавляем Лист в качестве атрибута к этой моделе
         List<User> users = usersService.findAll();
         model.addAttribute("userList", users); // помещаем в модель атрибут(если раскоментируес строку выше-- напишем вместо метода allUsers
-        System.out.println("Hello Java");
         return "allUsers";
     }
 
     @GetMapping("/add")
-    public String addNewUser(Model model) {
+    public String enterNewUserData(Model model) {
         User newUser = new User();
         model.addAttribute("newUser", newUser);
-        return "add";
+        return "add-data-page";
     }
+
+//    @GetMapping("/add")
+//    public String addNewUser(Model model) {
+//        User newUser = new User();
+//        model.addAttribute("newUser", newUser);
+//        return "add";
+//    }
+
+
 //@RequestMapping("/save")
 //    public String saveNewUser(@ModelAttribute ("newUser") User newUser) {
 //    usersService.add(newUser);

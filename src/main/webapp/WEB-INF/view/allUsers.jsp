@@ -11,12 +11,13 @@
 <h2>All Users</h2>
 <%--br -- пустая строка--%>
 <br>
-<table border="2">
+<table border style="accent-color: antiquewhite">
     <tr>
         <th>Id</th>
         <th>Name</th>
         <th>Age</th>
         <th>Email</th>
+        <th>Sex</th>
     </tr>
     <%--    временная переменная var будет принимать значение каждого юзера из списка userList--%>
     <c:forEach var="user" items="${userList}">
@@ -25,6 +26,7 @@
             <td>${user.userName}</td>
             <td>${user.userAge}</td>
             <td>${user.userEmail}</td>
+            <td>${user.userSex}</td>
         </tr>
     </c:forEach>
 </table>

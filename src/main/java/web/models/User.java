@@ -26,20 +26,25 @@ public class User {
     @Column(name = "email")
     private String userEmail;
 
+    @Column(name = "sex")
+    private String userSex;
+
     public User() {
     }
 
-    public User(String userName, int userAge, String userEmail) {
+    public User(String userName, int userAge, String userEmail, String userSex) {
         this.userName = userName;
         this.userAge = userAge;
         this.userEmail = userEmail;
+        this.userSex = userSex;
     }
 
-    public User(int userId, String userName, int userAge, String userEmail) {
+    public User(int userId, String userName, int userAge, String userEmail, String userSex) {
         this.userId = userId;
         this.userName = userName;
         this.userAge = userAge;
         this.userEmail = userEmail;
+        this.userSex = userSex;
     }
 
     public int getUserId() {
@@ -74,16 +79,23 @@ public class User {
         this.userEmail = userEmail;
     }
 
+    public String getUserSex() {
+        return userSex;
+    }
+
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");
-        sb.append("userId=").append(getUserId());
-        sb.append(", userName='").append(getUserName()).append('\'');
-        sb.append(", userAge=").append(getUserAge());
-        sb.append(", userEmail='").append(getUserEmail()).append('\'');
+        sb.append("userId=").append(userId);
+        sb.append(", userName='").append(userName).append('\'');
+        sb.append(", userAge=").append(userAge);
+        sb.append(", userEmail='").append(userEmail).append('\'');
+        sb.append(", userSex='").append(userSex).append('\'');
         sb.append('}');
         return sb.toString();
     }
-
-
 }
