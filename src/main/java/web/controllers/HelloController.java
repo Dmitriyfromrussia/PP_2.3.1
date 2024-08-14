@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HelloController { // пишем в множественном числе
 
-    @GetMapping("/hello-page")
+    @GetMapping("/hello")
     public String presentation() {
-        return "hello-page";
+        return "hello-page1";
     }
 }

@@ -16,7 +16,7 @@ public class WebConfig {
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/view/"); //// префикс и суффикс чтобы обращаться к вьюшкам напрямую по имени
-        viewResolver.setSuffix(".jsp");
+        viewResolver.setSuffix(".html");
         viewResolver.setContentType("text/html; charset=UTF-8");
         viewResolver.setRequestContextAttribute("requestContext");
         viewResolver.setExposeContextBeansAsAttributes(true);

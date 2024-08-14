@@ -8,7 +8,7 @@
 <h2>Add New User</h2>
 <form action="${pageContext.request.contextPath}/users/add" method="post">
 
-    <label for="name">Name</label>
+    <label for="name">Name:</label>
     <input type="text" id="name" name="name" placeholder="обязательное значение"/><br/>
 
     <label>Age:</label>
@@ -17,7 +17,7 @@
     <label>Email:</label>
     <input type="text" name="email"/><br/>
 
-    <label>Sex</label>
+    <label>Sex:</label>
     <input type="text" name="sex"/><br/>
 
 <%--    <label>Sex:</label>--%>
