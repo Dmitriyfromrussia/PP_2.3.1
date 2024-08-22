@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "users")
@@ -16,8 +17,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
-    @Column(name = "name") // ,nullable = false
-    //@NonNull //можно уточнить @NonNullApi (область действия = параметры + возвращаемые значения) и / или @NonNullFields
+    @Column(name = "name")
+    @NotEmpty
     private String userName;
 
     @Column(name = "age")
