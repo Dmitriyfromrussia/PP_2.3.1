@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/users") //это Controller mapping
-public class UsersController { // пишем в множественном числе
+public class  UsersController { // пишем в множественном числе
 
     private final UsersService usersService; // тип интерфейса, который имплементируется только одним классом
 
@@ -47,6 +47,17 @@ public class UsersController { // пишем в множественном чи�
         usersService.add(newUser);
         return "redirect:/users";
     }
+
+//    @PostMapping("/add")
+//    public String addNewUser(@RequestParam("name") String newUserName,
+//                             @RequestParam("age") int newUserAge,
+//                             @RequestParam("email") String newUserMail,
+//                             @RequestParam("sex") String newUserSex) {
+//
+//        User newUser = new User(newUserName, newUserAge, newUserMail, newUserSex);
+//        usersService.add(newUser);
+//        return "redirect:/users";
+//    }
 
     @GetMapping("/edit")
     public String editPage(@RequestParam("id") int id, Model model) {
