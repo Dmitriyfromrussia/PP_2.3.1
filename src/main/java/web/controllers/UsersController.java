@@ -49,7 +49,7 @@ public class UsersController { // пишем в множественном чи�
         usersService.add(newUserFromView);
         return "redirect:/users";
     }
-
+//второй вариант метода
 //    @PostMapping("/add")
 //    public String addNewUser(@RequestParam("name") String newUserName,
 //                             @RequestParam("age") int newUserAge,
@@ -80,7 +80,7 @@ public class UsersController { // пишем в множественном чи�
         return "redirect:/users";
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public String deleteUser(@RequestParam("id") int id) {
         User user = usersService.getById(id);
         usersService.delete(user);
