@@ -6,7 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -18,13 +21,16 @@ public class User {
     private int userId;
 
     @Column(name = "name")
-    @NotEmpty
+    @NotEmpty(message = "Имя не может быть пустым")
+    @Size(min = 2, max = 15, message = "Имя должно быть между 2 и 15 символами в длину")
     private String userName;
 
     @Column(name = "age")
+    @Min(value = 1, message = "Возраст должен быть больше 1")
     private int userAge;
 
     @Column(name = "email")
+    @Email
     private String userEmail;
 
     @Column(name = "sex")
